@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 12:50:24 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/10 15:36:54 by diogmart         ###   ########.fr       */
+/*   Created: 2023/05/10 15:02:46 by diogmart          #+#    #+#             */
+/*   Updated: 2023/05/10 15:43:16 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int main(int argc, char **argv)
 {
-    std::vector<std::string> input;
-    
-    if (argc == 1)  {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-        return 0;
+    (void)argv;
+    if (argc != 1) {
+        std::cout << "Error: Wrong number of arguments." << std::endl;
+        return (1);
     }
-
-    input.assign(argv, argv + argc);
-    
-    for (unsigned int i = 1; i < input.size(); i++)  {
-        
-       for (unsigned int j = 0; j < input[i].length(); j++)   {
-            putchar(toupper(input[i][j]));
-       }
-    }
-    std::cout << std::endl;
-    return 0;
+    std::cout << "Welcome to My Awesome Phonebook!" << std::endl;
+    std::cout << "Please enter a command: " << std::endl;
 }
