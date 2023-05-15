@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:14:39 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/15 10:44:50 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:45:12 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Contact {
         std::string _nickname;
         std::string _darkest_secret;
         unsigned int _number;
-        int _creation_order;
 
     Contact();
 
