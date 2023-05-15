@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:14:28 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/10 15:31:11 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/15 10:42:16 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class PhoneBook {
     
     public:
-        std::vector<Contact> contacts;
+        Contact contacts[8];
 
 };
 
