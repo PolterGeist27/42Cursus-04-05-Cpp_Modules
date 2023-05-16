@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 15:14:28 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/16 15:14:43 by diogmart         ###   ########.fr       */
+/*   Created: 2023/05/16 12:05:15 by diogmart          #+#    #+#             */
+/*   Updated: 2023/05/16 14:52:38 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef UTILS_H
+# define UTILS_H
 
-#include <iostream>
-#include "Contact.hpp"
-#include "Utils.hpp"
+# include <iostream>
+# include <iomanip>
 
-class PhoneBook {
-    
-    private:
-        Contact _contacts[8];
-        size_t  _size;
-        int     index;
-
-    public:
-        PhoneBook();
-        void add(void);
-        size_t getSize(void);
-        void search(void);
-        Contact get_contact(int index);
-};
+std::string get_input(std::string prompt);
 
 #endif

@@ -1,46 +1,64 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/10 14:28:58 by diogmart          #+#    #+#              #
-#    Updated: 2023/05/15 09:58:26 by diogmart         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+#_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ COLORS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
+RESET	= \033[0m
+BLACK 	= \033[1;30m
+RED 	= \033[1;31m
+GREEN 	= \033[1;32m
+YELLOW 	= \033[1;33m
+BLUE	= \033[1;34m
+PURPLE 	= \033[1;35m
+CYAN 	= \033[1;36m
+WHITE 	= \033[1;37m
 
-NAME = phonebook
+#_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ COMMANDS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
+CC = c++
+RM = rm -rf
+AR = ar -rcs
 
-INCS = ./includes/
+#_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FLAGS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
+CFLAGS	= -Wall -Wextra -Werror
+MK		= --no-print-directory
 
-SRC_DIR = ./srcs/
+#_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FOLDERS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
+INC				= includes
+SRCS			= srcs
+VPATH			= $(SRCS)
+OBJ_DIR			= bin
 
-SRC =	srcs/main.cpp \
-		srcs/PhoneBook.cpp \
-		srcs/Contact.cpp \
+#_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FILES _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
+NAME			= phonebook
+_FILES			= main Contact utils PhoneBook
+OBJS			= $(_FILES:%=%.o)
+TARGET			= $(addprefix $(OBJ_DIR)/, $(OBJS))
 
-OBJ_DIR = ./bin/
 
-OBJ = $(SRC:.cpp=.o)
-
-CPP = c++
-
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	@mkdir -p $(OBJ_DIR)
-	@$(CPP) $(CPPFLAGS) -I $(INCS) -c $< -o $@
-
+#_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ RULES _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
 all: $(NAME)
 
-$(NAME): $(addprefix $(OBJ_DIR), $(OBJ))
-	@$(CPP) $(CPPFLAGS) -I $(INCS) -o $@ $^
+$(NAME): $(OBJ_DIR) $(TARGET)
+	$(CC) $(CFLAGS) $(TARGET) -o $(NAME) -I $(INC)
+
+	echo "$(GREEN)Done.$(RESET)"
+
+$(OBJ_DIR)/%.o : %.cpp
+	echo "[$(CYAN)Compiling$(RESET)] $(CFLAGS) $(GREEN)$<$(RESET)"
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INC)
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	echo "[$(RED) Deleted $(RESET)] $(GREEN)$(OBJ_DIR)$(RESET)"
+	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
+	echo "[$(RED) Deleted $(RESET)] $(GREEN)$(NAME)$(RESET)"
+	$(RM) $(NAME)
 
 re: fclean all
+
+run:
+	./phonebook
+
+r: re run
+
+.SILENT:
