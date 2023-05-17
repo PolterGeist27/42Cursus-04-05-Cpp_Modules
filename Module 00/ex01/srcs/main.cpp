@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:02:46 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/17 13:02:06 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:05:20 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../includes/Contact.hpp"
 #include "../includes/PhoneBook.hpp"
 #include "../includes/Utils.hpp"
-
 
 int main(int argc, char **argv)
 {

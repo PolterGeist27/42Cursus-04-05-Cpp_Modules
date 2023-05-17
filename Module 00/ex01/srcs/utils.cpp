@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:04:41 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/17 13:01:16 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:12:47 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ string format_string(string str)
 
 bool is_number(string str)
 {
-    for (int i = 0; i < (int)str.length(); i++) {
+    for (size_t i = 0; i < str.length(); i++) {
         if (!isdigit(str[i]))
             return false;
     }
