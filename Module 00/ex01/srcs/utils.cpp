@@ -6,17 +6,44 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:04:41 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/16 13:44:10 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:01:16 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Utils.hpp"
 
-std::string get_input(std::string prompt)
+using std::string;
+
+string get_input(string prompt)
 {
-    std::string input;
+    string input;
     
-    std::cout << prompt;
-    std::cin >> input;
+    do {
+        std::cout << prompt;
+        if (!getline(std::cin, input))
+            exit(0);
+    } while (input.empty());
     return (input);
+}
+
+string format_string(string str)
+{
+    if (str.length() >= 10) {
+        string formatted;
+        
+        formatted = str.substr(0, 9);
+        formatted.append(".");
+        return (formatted);
+    }
+    else
+        return (str);
+}
+
+bool is_number(string str)
+{
+    for (int i = 0; i < (int)str.length(); i++) {
+        if (!isdigit(str[i]))
+            return false;
+    }
+    return true;
 }

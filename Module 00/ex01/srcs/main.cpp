@@ -6,13 +6,15 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:02:46 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/16 15:09:15 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:02:06 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "../includes/Contact.hpp"
 #include "../includes/PhoneBook.hpp"
+#include "../includes/Utils.hpp"
+
 
 int main(int argc, char **argv)
 {
@@ -28,21 +30,16 @@ int main(int argc, char **argv)
     std::cout << "Welcome to My Awesome Phonebook!" << std::endl;
     
     do {
+        std::cout << std::endl;
+        std::cout << " ========(?)========" << std::endl;
         std::cout << "Available commands:\n -ADD: save a new contact\n -SEARCH: display a specific contact\n -EXIT" << std::endl;
         std::cout << "Please enter a command: ";
-        std::cin >> input;
-
+        if (!getline(std::cin, input))
+            break;
         if (input == "ADD")
             phonebook.add();
-        else if (input == "SEARCH") {
+        else if (input == "SEARCH")
             phonebook.search();
-            int index;
-            do {
-                std::cout << "Please enter the index of the contact you want to display: ";
-                std::cin >> index;
-            } while (index < 0 || index > 7);
-            phonebook.get_contact(index).print_contact();
-        }
     }   while (input != "EXIT");
     return 0;
 }

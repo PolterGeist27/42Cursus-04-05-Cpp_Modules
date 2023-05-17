@@ -6,12 +6,12 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:14:39 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/16 15:12:04 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:39:36 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <iostream>
 # include "Utils.hpp"
