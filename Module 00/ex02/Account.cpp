@@ -6,12 +6,19 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:49:33 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/17 16:09:37 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:03:30 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Account.hpp"
 #include <iostream>
+#include <ctime>
+
+#include "Account.hpp"
+
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
 
 // [19920104_091532] index:6;amount:754;created
 
@@ -23,8 +30,8 @@ Account::Account( int initial_deposit )
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
 
-    _nbAccounts++;
-    _totalAmount += initial_deposit;
+    Account::_nbAccounts++;
+    Account::_totalAmount += initial_deposit;
     
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
@@ -36,7 +43,7 @@ Account::Account( int initial_deposit )
 
 Account::~Account( void )
 {
-    Account::_displayTimestamp();
+    _displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
     std::cout << "amount:" << this->_amount << ";";
     std::cout << "closed" << std::endl;
@@ -66,15 +73,15 @@ int	Account::getNbWithdrawals( void ) {
 void    Account::makeDeposit( int deposit )
 {
     _displayTimestamp();
-    std::cout << "index:" << _accountIndex << ";";
-    std::cout << "p_amount:" << _amount<< ";";
+    std::cout << "index:" << this->_accountIndex << ";";
+    std::cout << "p_amount:" << this->_amount<< ";";
     std::cout << "deposit:" << deposit<< ";";
     
     this->_amount += deposit;
-    std::cout << "amount:" << _amount<< ";";
+    std::cout << "amount:" << this->_amount<< ";";
 
     this->_nbDeposits++;
-    std::cout << "deposits:" << _nbDeposits << std::endl;
+    std::cout << "deposits:" << this->_nbDeposits << std::endl;
     
     _totalAmount += deposit;
     _totalNbDeposits++;
@@ -86,8 +93,8 @@ void    Account::makeDeposit( int deposit )
 bool	Account::makeWithdrawal( int withdrawal )
 {
     _displayTimestamp();
-    std::cout << "index:" << _accountIndex << ";";
-    std::cout << "p_amount:" << _amount<< ";";
+    std::cout << "index:" << this->_accountIndex << ";";
+    std::cout << "p_amount:" << this->_amount<< ";";
     if (this->_amount < withdrawal) {
         std::cout << "withdrawal:refused" << std::endl;
         return false;
@@ -95,10 +102,10 @@ bool	Account::makeWithdrawal( int withdrawal )
     std::cout << "withdrawal:" << withdrawal << ";";
     
     this->_amount -= withdrawal;
-    std::cout << "amount:" << _amount<< ";";
+    std::cout << "amount:" << this->_amount<< ";";
 
     this->_nbWithdrawals++;
-    std::cout << "withdrawals:" << _nbWithdrawals << std::endl;
+    std::cout << "withdrawals:" << this->_nbWithdrawals << std::endl;
 
     _totalAmount -= withdrawal;
     _totalNbWithdrawals++;
@@ -114,10 +121,10 @@ int		Account::checkAmount( void ) const {
 void	Account::displayStatus( void ) const
 {
     _displayTimestamp();
-    std::cout << "index:" << _accountIndex << ";";
-    std::cout << "amount:" << _amount<< ";";
-    std::cout << "deposits:" << _nbDeposits << ";";
-    std::cout << "withdrawals:" << _nbWithdrawals << std::endl;
+    std::cout << "index:" << this->_accountIndex << ";";
+    std::cout << "amount:" << this->_amount<< ";";
+    std::cout << "deposits:" << this->_nbDeposits << ";";
+    std::cout << "withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
 
@@ -132,7 +139,14 @@ void	Account::displayAccountsInfos( void )
     std::cout << "withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
-void	Account::_displayTimestamp( void )
+// YearMonthDay_HoursMinutesSeconds
+
+void	Account::_displayTimestamp(void)
 {
-    
+    std::time_t timeNow;
+    char timeString[100];
+
+    timeNow = std::time(NULL);
+    std::strftime(timeString, sizeof(timeString), "%Y%m%d_%H%M%S", std::localtime(&timeNow));
+    std::cout << "[" << timeString << "] ";
 }
