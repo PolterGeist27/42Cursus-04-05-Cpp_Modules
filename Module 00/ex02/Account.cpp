@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:49:33 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/22 14:03:30 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:56:08 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	Account::_totalNbWithdrawals = 0;
 
 // [19920104_091532] index:6;amount:754;created
 
-Account::Account( int initial_deposit )
+Account::Account( int initial_deposit ) : _amount(initial_deposit)
 {
-    this->_amount = initial_deposit;
+   // this->_amount = initial_deposit;
     this->_accountIndex = this->getNbAccounts();
     this->_amount = 0;
 	this->_nbDeposits = 0;
