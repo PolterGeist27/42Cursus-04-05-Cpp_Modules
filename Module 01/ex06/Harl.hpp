@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:13:34 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/25 11:31:55 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:32:22 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Harl {
         Harl();
         ~Harl();
         void complain( std::string level );
+        void filter( std::string level );
 
 };
 

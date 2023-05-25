@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:13:30 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/25 11:31:51 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:39:16 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
     Harl::~Harl() {};
 
 void Harl::debug( void ) {
-    std::cout << "I love having extra bacon for my";
+    std::cout << "I love having extra bacon for my ";
     std::cout << "7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
 
@@ -35,6 +35,43 @@ void Harl::error( void ) {
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+void Harl::filter( std::string level ) {
+    
+    int filter;
+
+    std::string levels[] = {
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR"
+    };
+
+    filter = 0;
+    while (levels[filter] != level)
+        filter++;
+
+    switch (filter)
+    {
+        case 0:
+            std::cout << "====(DEBUG)====" << std::endl;
+            this->complain("DEBUG");
+
+        case 1:
+            std::cout << "====(INFO)====" << std::endl;
+            this->complain("INFO");
+
+        case 2:
+            std::cout << "====(WARNING)====" << std::endl;
+            this->complain("WARNING");
+            
+        case 3:
+            std::cout << "====(ERROR)====" << std::endl;
+            this->complain("ERROR");
+    
+        default:
+            break;
+    }
+}
 
 void Harl::complain( std::string level ) {
 
@@ -56,5 +93,4 @@ void Harl::complain( std::string level ) {
         if (levels[i] == level)
             (this->*funcs[i])();
     }
-
 }

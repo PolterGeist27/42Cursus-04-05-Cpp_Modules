@@ -6,29 +6,22 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:13:37 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/25 11:30:23 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:34:30 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main(void) {
-    Harl harl;
-
-    std::cout << "====(DEBUG)====" << std::endl;
-    harl.complain( "DEBUG" );
-    std::cout << std::endl;
-
-    std::cout << "====(INFO)====" << std::endl;
-    harl.complain( "INFO" );
-    std::cout << std::endl;
+int main(int argc, char **argv) {
     
-    std::cout << "====(WARNING)====" << std::endl;
-    harl.complain( "WARNING" );
-    std::cout << std::endl;
+    if (argc != 2) {
+        std::cout << "Wrong number of arguments!" << std::endl;
+        return (0);
+    }
 
-    std::cout << "====(ERROR)====" << std::endl;
-    harl.complain( "ERROR" );
-    std::cout << std::endl;
+    Harl harl;
+    std::string input = argv[1];
 
+    harl.filter(argv[1]);
+    return (0);
 }
