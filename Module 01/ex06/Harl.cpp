@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:13:30 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/25 11:39:16 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:37:59 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,19 @@ void Harl::filter( std::string level ) {
     };
 
     filter = 0;
-    while (levels[filter] != level)
+    while (levels[filter] != level) {
         filter++;
-
+        if (filter >= 4) {
+            filter = -1;
+            break;
+        }
+    }
     switch (filter)
     {
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            break;
+
         case 0:
             std::cout << "====(DEBUG)====" << std::endl;
             this->complain("DEBUG");
@@ -67,9 +75,7 @@ void Harl::filter( std::string level ) {
         case 3:
             std::cout << "====(ERROR)====" << std::endl;
             this->complain("ERROR");
-    
-        default:
-            break;
+
     }
 }
 
