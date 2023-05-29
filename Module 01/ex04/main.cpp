@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:12:53 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/24 15:03:54 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/05/29 10:23:29 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,19 @@ int main(int argc, char **argv)
         {
             if (line.find(s1) != std::string::npos)
             {
-                int index = line.find(s1);
+                size_t pos = 0;
                 
-                string substr1 = line.substr(0, index);
-                string substr2 = line.substr(index + s1.length());
-
-                string result = substr1 + s2 + substr2;
-            
-                file_out << result;
+                while (1) {
+                    pos = line.find(s1, pos);
+                    
+                    if (pos == std::string::npos) 
+                        break;
+                    line.erase(pos, s1.length());
+                    line.insert(pos, s2);
+                    pos += s2.length();
+                }
             }
-            else
-                file_out << line;
+            file_out << line << std::endl;
         }
 
         file_in.close();
