@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstring>
+#include <bits/stdc++.h>
 
 int main(int argc, char **argv)
-{ 
+{
     if (argc == 1)  {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
         return 0;
     }
 
-    for (unsigned int i = 1; i < argc; i++)  {
-        
+    for (int i = 1; i < argc; i++)  {
+
        for (unsigned int j = 0; j < strlen(argv[i]); j++)   {
             putchar(toupper(argv[i][j]));
        }
