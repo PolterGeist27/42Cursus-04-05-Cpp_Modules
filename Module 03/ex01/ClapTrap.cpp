@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:32:11 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 10:15:29 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:17:40 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void ClapTrap::attack(const std::string& target) {
 
 void ClapTrap::takeDamage(unsigned int amount) {
     if (this->_HP <= amount) {
-        std::cout << "ClapTrap " << this->_name << " is bellow 0 HP! " << std::endl;
+        std::cout << this->_name << " is bellow 0 HP! " << std::endl;
         return ;
     }
     this->_HP -= amount;
-    std::cout << "ClapTrap " << this->_name << " was attacked ";
+    std::cout << this->_name << " was attacked ";
     std::cout << "and received " << amount << " points of damage!" << std::endl;
     std::cout << "It still has " << this->_HP << " hitpoints left!" << std::endl;
 }
@@ -62,10 +62,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::beRepaired(unsigned int amount) {
 
     if (this->_EP == 0 || this->_HP == 0) {
-        std::cout << "ClapTrap " << this->_name << " can't repair itself!" << std::endl;
+        std::cout << this->_name << " can't repair itself!" << std::endl;
         return ;
     }
     this->_HP += amount;
     this->_EP--;
-    std::cout << "ClapTrap " << this->_name << " repaired itself and gained " << amount << " hitpoints!" << std::endl;
+    std::cout << this->_name << " repaired itself and gained " << amount << " hitpoints!" << std::endl;
 }

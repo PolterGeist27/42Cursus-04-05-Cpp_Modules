@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:32:11 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 12:09:58 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:19:02 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ ClapTrap &ClapTrap::operator=( ClapTrap original ) {
 
 void ClapTrap::attack(const std::string& target) {
     if (this->_EP == 0 || this->_HP == 0) {
-        std::cout << "ClapTrap " << this->_name << " can't attack!" << std::endl;
+        std::cout << this->_name << " can't attack!" << std::endl;
         return ;
     }
     this->_EP--;
-    std::cout << "ClapTrap " << this->_name << " attacks " << target;
+    std::cout << this->_name << " attacks " << target;
     std::cout << " causing " << this->_AD << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
     if (this->_HP <= amount) {
-        std::cout << "ClapTrap " << this->_name << " is bellow 0 HP! " << std::endl;
+        std::cout << this->_name << " is bellow 0 HP! " << std::endl;
         return ;
     }
     this->_HP -= amount;
-    std::cout << "ClapTrap " << this->_name << " was attacked ";
+    std::cout << this->_name << " was attacked ";
     std::cout << "and received " << amount << " points of damage!" << std::endl;
     std::cout << "It still has " << this->_HP << " hitpoints left!" << std::endl;
 }
@@ -62,10 +62,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::beRepaired(unsigned int amount) {
 
     if (this->_EP == 0 || this->_HP == 0) {
-        std::cout << "ClapTrap " << this->_name << " can't repair itself!" << std::endl;
+        std::cout << this->_name << " can't repair itself!" << std::endl;
         return ;
     }
     this->_HP += amount;
     this->_EP--;
-    std::cout << "ClapTrap " << this->_name << " repaired itself and gained " << amount << " hitpoints!" << std::endl;
+    std::cout << this->_name << " repaired itself and gained " << amount << " hitpoints!" << std::endl;
 }
