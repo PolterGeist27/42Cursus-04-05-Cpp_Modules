@@ -6,16 +6,16 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:32:11 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 10:06:30 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:09:58 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap( std::string name ) : _name(name) {
-    _HP = 10;
-    _EP = 10;
-    _AD = 0;
+    _HP = ClapTrap::HP;
+    _EP = ClapTrap::EP;
+    _AD = ClapTrap::AD;
     std::cout << "ClapTrap " << name << " created!" << std::endl;
 }
 
@@ -28,6 +28,7 @@ ClapTrap::~ClapTrap() {
 }
 
 ClapTrap &ClapTrap::operator=( ClapTrap original ) {
+    std::cout << "Copy of " << original._name << " ClapTrap created!" << std::endl;
     if (this != &original) {
         this->_name = original._name;
         this->_name = original._HP;
@@ -49,7 +50,6 @@ void ClapTrap::attack(const std::string& target) {
 
 void ClapTrap::takeDamage(unsigned int amount) {
     if (this->_HP <= amount) {
-        this->_HP = 0;
         std::cout << "ClapTrap " << this->_name << " is bellow 0 HP! " << std::endl;
         return ;
     }

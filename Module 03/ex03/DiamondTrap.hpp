@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 15:22:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 10:04:55 by diogmart         ###   ########.fr       */
+/*   Created: 2023/06/01 10:29:20 by diogmart          #+#    #+#             */
+/*   Updated: 2023/06/01 12:14:33 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include <iostream>
-#include "ClapTrap.hpp"
+# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-
-class ScavTrap : public ClapTrap {
+class DiamondTrap : public virtual ScavTrap, public virtual FragTrap {
     
     private:
-
+        std::string _name;
     
     public:
-        ScavTrap( std::string name );
-        ScavTrap( ScavTrap& original );
-        ~ScavTrap();
-        ScavTrap &operator=( ScavTrap original );
-        void attack(const std::string& target);
-        void guardGate();
+        
+        DiamondTrap( std::string name );
+        ~DiamondTrap();
+
+        using ScavTrap::attack;
+
+        void whoAmI();
+        unsigned int getHP();
+        unsigned int getEP();
+        unsigned int getAD();
 };
 
 #endif

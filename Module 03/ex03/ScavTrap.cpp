@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:22:21 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 10:15:18 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:11:52 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
     std::cout << "ClapTrap turned into ScavTrap!" << std::endl;
-    this->_HP = 100;
-    this->_EP = 50;
-    this->_AD = 20;
+    this->_HP = ScavTrap::HP;
+    this->_EP = ScavTrap::EP;
+    this->_AD = ScavTrap::AD;
 }
 
 ScavTrap::ScavTrap( ScavTrap& original ) : ClapTrap(original) {
@@ -38,11 +38,11 @@ ScavTrap &ScavTrap::operator=( ScavTrap original ) {
 
 void ScavTrap::attack(const std::string& target) {
     if (this->_EP == 0 || this->_HP == 0) {
-        std::cout << "ClapTrap " << this->_name << " can't attack!" << std::endl;
+        std::cout << "ScavTrao " << this->_name << " can't attack!" << std::endl;
         return ;
     }
     this->_EP--;
-    std::cout << "ClapTrap " << this->_name << " attacks " << target;
+    std::cout << "ScavTrap " << this->_name << " attacks " << target;
     std::cout << " causing " << this->_AD << " points of damage!" << std::endl;
 }
 

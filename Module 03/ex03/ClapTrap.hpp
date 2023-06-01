@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 15:22:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 10:04:55 by diogmart         ###   ########.fr       */
+/*   Created: 2023/05/30 14:32:09 by diogmart          #+#    #+#             */
+/*   Updated: 2023/06/01 12:08:18 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
-#include "ClapTrap.hpp"
 
-
-class ScavTrap : public ClapTrap {
+class ClapTrap {
     
-    private:
-
+    protected:
+        std::string _name;
+        unsigned int _HP;
+        unsigned int _EP;
+        unsigned int _AD;
+        static int const HP = 10;
+	    static int const EP = 10;
+	    static int const AD = 0;
     
     public:
-        ScavTrap( std::string name );
-        ScavTrap( ScavTrap& original );
-        ~ScavTrap();
-        ScavTrap &operator=( ScavTrap original );
+        ClapTrap( std::string name );
+        ClapTrap( ClapTrap& original );
+        ~ClapTrap();
+        ClapTrap &operator=( ClapTrap original );
         void attack(const std::string& target);
-        void guardGate();
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
+
 };
 
 #endif

@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 15:22:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 10:04:55 by diogmart         ###   ########.fr       */
+/*   Created: 2023/05/30 14:32:06 by diogmart          #+#    #+#             */
+/*   Updated: 2023/06/01 12:10:36 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
-
-# include <iostream>
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
+int main(void)
+{
+	DiamondTrap diamond("Ormunt");
 
-class ScavTrap : public ClapTrap {
-    
-    private:
-
-    
-    public:
-        ScavTrap( std::string name );
-        ScavTrap( ScavTrap& original );
-        ~ScavTrap();
-        ScavTrap &operator=( ScavTrap original );
-        void attack(const std::string& target);
-        void guardGate();
-};
-
-#endif
+	diamond.attack("Franklin");
+	diamond.whoAmI();
+	std::cout << "HP " << diamond.getHP() << std::endl;
+	std::cout << "EP " << diamond.getEP() << std::endl;
+	std::cout << "Attack " << diamond.getAD() << std::endl;
+}

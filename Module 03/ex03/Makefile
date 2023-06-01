@@ -7,7 +7,7 @@ RM	= rm -rf
 all: $(NAME)
 
 $(NAME):
-	@$(CPP) $(CPPFLAGS) main.cpp ClapTrap.cpp ScavTrap.cpp -o $(NAME)
+	@$(CPP) $(CPPFLAGS) main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp -o $(NAME)
 
 clean:
 	@$(RM) $(NAME)
