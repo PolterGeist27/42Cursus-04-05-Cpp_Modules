@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:35 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 15:14:21 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:25:21 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class Brain {
 
     public:
         Brain();
-        Brain(Brain const &other);
+        Brain(Brain const &original);
         ~Brain();
 
-        Brain &operator=(Brain const &other);
+        Brain &operator=(Brain const &original);
 
     private:
         std::string _ideas[100];

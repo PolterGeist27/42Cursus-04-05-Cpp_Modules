@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:49:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 15:15:15 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:21:05 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Dog::Dog() {
     std::cout << "Dog constructor called!" << std::endl;
     this->_type = "Dog";
-    this->_brain = new Brain::Brain();
+    this->_brain = new Brain();
 }
 
 Dog::Dog(Dog const &other) {
@@ -26,6 +26,7 @@ Dog::Dog(Dog const &other) {
 
 Dog::~Dog() {
     std::cout << "Dog destructor called!" << std::endl;
+    delete this->_brain;
 }
 
 Dog &Dog::operator=(Dog const &other) {

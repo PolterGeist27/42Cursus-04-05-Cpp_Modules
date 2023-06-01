@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:49:44 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 14:25:15 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:21:45 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Cat::Cat() {
     std::cout << "Cat constructor called!" << std::endl;
     this->_type = "Cat";
+    this->_brain = new Brain();
 }
 
 Cat::Cat(Cat const &other) {
@@ -24,6 +25,7 @@ Cat::Cat(Cat const &other) {
 
 Cat::~Cat() {
     std::cout << "Cat destructor called!" << std::endl;
+    delete this->_brain;
 }
 
 Cat &Cat::operator=(Cat const &other) {
