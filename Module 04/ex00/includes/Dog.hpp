@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:43:36 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 14:25:28 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:35:04 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Dog : public Animal {
 
     public:
         Dog();
-        Dog(Dog const &other);
+        Dog(Dog const &original);
         virtual ~Dog();
 
-        Dog &operator=(Dog const &other);
+        Dog &operator=(Dog const &original);
 
         void makeSound() const;
 };

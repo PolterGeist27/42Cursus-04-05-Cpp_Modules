@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:49:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 15:21:05 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:52:13 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,30 @@ Dog::Dog() {
     this->_brain = new Brain();
 }
 
-Dog::Dog(Dog const &other) {
+Dog::Dog(Dog const &original) : Animal(original) {
     std::cout << "Dog copy constructor called!" << std::endl;
-    *this = other;
+    *this = original;
 }
 
 Dog::~Dog() {
-    std::cout << "Dog destructor called!" << std::endl;
     delete this->_brain;
+    std::cout << "Dog destructor called!" << std::endl;
 }
 
-Dog &Dog::operator=(Dog const &other) {
+Dog &Dog::operator=(Dog const &original) {
     std::cout << "Dog assignation operator called!" << std::endl;
-    if (this != &other)
-        this->_type = other._type;
+    if (this != &original) {
+        this->_type = original._type;
+        delete[] this->_brain;
+        this->_brain = new Brain(*original._brain);
+    }
     return (*this);
 }
 
 void Dog::makeSound() const {
     std::cout << "Woof!" << std::endl;
+}
+
+Brain *Dog::getBrain() {
+    return (this->_brain);
 }

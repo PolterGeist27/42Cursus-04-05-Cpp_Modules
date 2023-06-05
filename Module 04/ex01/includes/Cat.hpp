@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:43:38 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 15:09:22 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:16:07 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ class Cat : public Animal {
 
     public:
         Cat();
-        Cat(Cat const &other);
+        Cat(Cat const &original);
         virtual ~Cat();
 
-        Cat &operator=(Cat const &other);
+        Cat& operator=(const Cat &original);
 
         void makeSound() const;
+        Brain *getBrain();
 
     private:
         Brain *_brain;

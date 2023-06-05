@@ -10,12 +10,12 @@ CYAN 	= \033[1;36m
 WHITE 	= \033[1;37m
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ COMMANDS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
-CC = c++
+CPP = c++
 RM = rm -rf
 AR = ar -rcs
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FLAGS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
-CFLAGS	= -Wall -Wextra -Werror
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 MK		= --no-print-directory
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FOLDERS _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
@@ -35,13 +35,13 @@ TARGET			= $(addprefix $(OBJ_DIR)/, $(OBJS))
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(TARGET)
-	$(CC) $(CFLAGS) $(TARGET) -o $(NAME) -I $(INC)
+	$(CPP) $(CPPFLAGS) $(TARGET) -o $(NAME) -I $(INC)
 
 	echo "$(GREEN)Done.$(RESET)"
 
 $(OBJ_DIR)/%.o : %.cpp
-	echo "[$(CYAN)Compiling$(RESET)] $(CFLAGS) $(GREEN)$<$(RESET)"
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INC)
+	echo "[$(CYAN)Compiling$(RESET)] $(CPPFLAGS) $(GREEN)$<$(RESET)"
+	$(CPP) $(CPPFLAGS) -c $< -o $@ -I $(INC)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)

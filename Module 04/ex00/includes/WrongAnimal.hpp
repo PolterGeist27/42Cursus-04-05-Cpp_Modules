@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:14:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 14:18:14 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:35:27 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 
     public:
         WrongAnimal();
-        WrongAnimal( WrongAnimal const &other );
+        WrongAnimal( WrongAnimal const &original );
         ~WrongAnimal();
 
-        WrongAnimal &operator=( WrongAnimal const &other );
+        WrongAnimal &operator=( WrongAnimal const &original );
         
         void makeSound() const;
         std::string getType() const;

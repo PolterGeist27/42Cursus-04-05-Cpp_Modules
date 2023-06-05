@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:14:48 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 14:19:28 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:32:01 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class WrongCat : public WrongAnimal {
 
     public:
         WrongCat();
-        WrongCat(WrongCat const &other);
+        WrongCat(WrongCat const &original);
         ~WrongCat();
 
-        WrongCat &operator=(WrongCat const &other);
+        WrongCat &operator=(WrongCat const &original);
 
         void makeSound() const;
         std::string getType() const;

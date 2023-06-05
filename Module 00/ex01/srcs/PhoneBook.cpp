@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:01:12 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/17 12:50:07 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:11:05 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void PhoneBook::   search(void)
             std::cout << "Invalid index!" << std::endl;
             continue;
         }
-        index = stoi(in_index);
+        index = atoi(in_index.c_str());
         if (index < 0 || index >= (int)this->_size)
             std::cout << "No contact with that index!" << std::endl;
     } while (index < 0 || index >= (int)this->_size);

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:59:48 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 14:28:35 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:26:20 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,60 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main()
+#include <ctime>
+
+void test_animal_copies(void)
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-
-    std::cout << "\n\t=== Testing wrong inheritance of an animal ===\n" << std::endl;
+	std::cout << "\n\t=== Testing shallow/deep copies ===\n" << std::endl;
 	
-	const WrongAnimal *cat = new WrongCat();
+	Cat *cat = new Cat();
+	Cat *clone = new Cat(*cat);
 
-	cat->makeSound();
+	std::cout << "\n\tCats brain: " << cat->getBrain() << std::endl << std::endl;
 	delete cat;
 
-    return 0;
+	std::cout << "\tClone cat brain: " << clone->getBrain() << std::endl << std::endl;
+	delete clone;
+
+	std::cout << std::endl;
+}
+
+void test_destructors(void)
+{
+	std::cout << "\n\t=== Testing destructors ===\n" << std::endl;
+	
+	Animal *animals[4] = 
+	{
+		new Dog(),
+		new Dog(),
+		new Cat(),
+		new Cat()
+	};
+
+	for (int i = 0; i < 4; i++)
+		delete animals[i];
+}
+
+void test_leaks(void)
+{
+	std::cout << "\n\t=== Testing possible leaks ===\n" << std::endl;
+
+	Cat *cat1 = new Cat();
+	Cat *cat2 = new Cat();
+	
+	*cat1 = *cat2;
+
+	std::cout << "\n\tcat1 brain: " << cat1->getBrain() << std::endl << std::endl;
+	delete cat1;
+
+	std::cout << "\tcat2 brain: " << cat2->getBrain() << std::endl << std::endl;
+	delete cat2;
+}
+
+int main()
+{
+	std::srand(std::time(NULL));
+	test_animal_copies();
+	test_destructors();
+	test_leaks();
 }

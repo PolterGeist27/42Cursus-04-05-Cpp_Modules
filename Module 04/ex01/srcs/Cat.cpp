@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:49:44 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 15:21:45 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:16:55 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,30 @@ Cat::Cat() {
     this->_brain = new Brain();
 }
 
-Cat::Cat(Cat const &other) {
+Cat::Cat(Cat const &original) : Animal(original) {
     std::cout << "Cat copy constructor called!" << std::endl;
-    *this = other;
+    *this = original;
 }
 
 Cat::~Cat() {
-    std::cout << "Cat destructor called!" << std::endl;
     delete this->_brain;
+    std::cout << "Cat destructor called!" << std::endl;
 }
 
-Cat &Cat::operator=(Cat const &other) {
+Cat& Cat::operator=(const Cat &original) {
     std::cout << "Cat assignation operator called!" << std::endl;
-    if (this != &other)
-        this->_type = other._type;
+    if (this != &original) {
+        this->_type = original._type;
+        delete this->_brain;
+        this->_brain = new Brain(*original._brain);
+    }
     return (*this);
 }
 
 void Cat::makeSound() const {
     std::cout << "Meow!" << std::endl;
+}
+
+Brain *Cat::getBrain() {
+    return (this->_brain);
 }
