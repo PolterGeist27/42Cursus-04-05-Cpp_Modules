@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:59:48 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 11:26:20 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:29:19 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,17 @@ void test_leaks(void)
 
 	std::cout << "\tcat2 brain: " << cat2->getBrain() << std::endl << std::endl;
 	delete cat2;
+
+	Dog *dog1 = new Dog();
+	Dog *dog2 = new Dog();
+	
+	*dog1 = *dog2;
+
+	std::cout << "\n\tdog1 brain: " << dog1->getBrain() << std::endl << std::endl;
+	delete dog1;
+
+	std::cout << "\tdog2 brain: " << dog2->getBrain() << std::endl << std::endl;
+	delete dog2;
 }
 
 int main()
