@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:49:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 10:36:27 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:15:50 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog() {
     this->_type = "Dog";
 }
 
-Dog::Dog(Dog const &original) {
+Dog::Dog(Dog const &original) : Animal(original) {
     std::cout << "Dog copy constructor called!" << std::endl;
     *this = original;
 }

@@ -26,7 +26,7 @@ OBJ_DIR			= bin
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_ FILES _/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
 NAME			= interface
-_FILES			= main
+_FILES			= main AMateria Character Cure Ice MateriaSource
 OBJS			= $(_FILES:%=%.o)
 TARGET			= $(addprefix $(OBJ_DIR)/, $(OBJS))
 
@@ -57,7 +57,7 @@ fclean: clean
 re: fclean all
 
 run:
-	./phonebook
+	./$(NAME)
 
 r: re run
 

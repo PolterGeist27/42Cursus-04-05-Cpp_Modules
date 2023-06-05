@@ -57,7 +57,7 @@ fclean: clean
 re: fclean all
 
 run:
-	./phonebook
+	./$(NAME)
 
 r: re run
 
