@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:12:53 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/29 10:23:29 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:55:43 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ int main(int argc, char **argv)
         file_in.close();
         file_out.close();
     }
+    if (file_in.is_open())
+        file_in.close();
+    if (file_out.is_open())
+        file_out.close();
 
     return (0);
 }
