@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:00:24 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 10:37:04 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:55:51 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
         Animal &operator=(Animal const &original);
         
         virtual void makeSound() const;
-        virtual std::string getType() const;
+        std::string getType() const;
 
 };
 

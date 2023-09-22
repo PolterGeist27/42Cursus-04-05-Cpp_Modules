@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:59:48 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 14:28:35 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:53:54 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,27 @@
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    const Animal* a = new Animal();
+    const Animal* d = new Dog();
+    const Animal* c = new Cat();
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
+    std::cout << d->getType() << std::endl;
+    std::cout << c->getType() << std::endl;
     
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
+    c->makeSound(); //will output the cat sound!
+    d->makeSound();
+    a->makeSound();
+    
+    delete a;
+    delete d;
+    delete c;
 
-    std::cout << "\n\t=== Testing wrong inheritance of an animal ===\n" << std::endl;
+    std::cout << "\n\t=== Testing wrong inheritance ===\n" << std::endl;
 	
-	const WrongAnimal *cat = new WrongCat();
+	const WrongAnimal *wcat = new WrongCat();
 
-	cat->makeSound();
-	delete cat;
+	wcat->makeSound();
+	delete wcat;
 
     return 0;
 }
