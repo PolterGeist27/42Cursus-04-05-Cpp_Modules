@@ -6,11 +6,12 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:49:44 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/22 15:08:00 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:49:12 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Animal.hpp"
 
 Cat::Cat() {
     std::cout << "Cat constructor called!" << std::endl;
@@ -18,9 +19,10 @@ Cat::Cat() {
     this->_brain = new Brain();
 }
 
-Cat::Cat(Cat const &original) {
+Cat::Cat(const Cat &original) : Animal(original) {
     std::cout << "Cat copy constructor called!" << std::endl;
-    *this = original;
+    this->_type = original._type;
+    this->_brain = new Brain(*original._brain);
 }
 
 Cat::~Cat() {
@@ -32,8 +34,7 @@ Cat& Cat::operator=(const Cat &original) {
     std::cout << "Cat assignation operator called!" << std::endl;
     if (this != &original) {
         this->_type = original._type;
-        if (this->_brain)
-            delete this->_brain;
+        delete this->_brain;
         this->_brain = new Brain(*original._brain);
     }
     return (*this);
