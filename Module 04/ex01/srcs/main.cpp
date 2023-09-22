@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:59:48 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 11:29:19 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:59:06 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 void test_animal_copies(void)
 {
-	std::cout << "\n\t=== Testing shallow/deep copies ===\n" << std::endl;
+	std::cout << "\n\t=== Testing shallow or deep copies ===\n" << std::endl;
 	
 	Cat *cat = new Cat();
 	Cat *clone = new Cat(*cat);
@@ -52,7 +52,7 @@ void test_destructors(void)
 
 void test_leaks(void)
 {
-	std::cout << "\n\t=== Testing possible leaks ===\n" << std::endl;
+	std::cout << "\n\t=== Testing leaks ===\n" << std::endl;
 
 	Cat *cat1 = new Cat();
 	Cat *cat2 = new Cat();
