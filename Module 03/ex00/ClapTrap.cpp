@@ -6,14 +6,17 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:32:11 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/25 11:27:18 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:08:03 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {
-    ClapTrap("Default");
+ClapTrap::ClapTrap() : _name("Default") {
+    _HP = 10;
+    _EP = 10;
+    _AD = 0;
+    std::cout << "ClapTrap " << this->_name << " created!" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ) : _name(name) {

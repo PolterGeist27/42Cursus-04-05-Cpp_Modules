@@ -6,14 +6,17 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:22:21 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/25 11:34:38 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:08:41 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ) {
-    ScavTrap("Default");
+ScavTrap::ScavTrap( void ) : ClapTrap() {
+    std::cout << "ClapTrap turned into ScavTrap!" << std::endl;
+    this->_HP = 100;
+    this->_EP = 50;
+    this->_AD = 20;
 }
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {

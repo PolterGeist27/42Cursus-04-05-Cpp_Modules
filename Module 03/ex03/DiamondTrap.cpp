@@ -6,14 +6,17 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 10:29:13 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/25 11:22:23 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:10:11 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() {
-    DiamondTrap("Default");
+DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap(), _name("Default") {
+    std::cout << "DiamondTrap created!" << std::endl;
+    this->_HP = FragTrap::HP;
+    this->_EP = ScavTrap::EP;
+    this->_AD = FragTrap::AD;
 }
 
 DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name) {

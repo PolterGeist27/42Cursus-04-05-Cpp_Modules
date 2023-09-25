@@ -6,14 +6,17 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 10:17:01 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/25 11:22:35 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:09:08 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() {
-    FragTrap("Default");
+FragTrap::FragTrap() : ClapTrap() {
+    std::cout << "ClapTrap turned into FragTrap!" << std::endl;
+    this->_HP = 100;
+    this->_EP = 100;
+    this->_AD = 30;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
