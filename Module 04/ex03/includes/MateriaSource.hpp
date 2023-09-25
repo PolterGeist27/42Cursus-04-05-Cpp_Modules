@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:08:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/06 10:52:48 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:43:44 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-# include "general.hpp"
+# include "IMateriaSource.hpp"
 
 # define MAX_MATERIAS 4
 

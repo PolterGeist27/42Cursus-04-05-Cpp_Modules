@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:59:27 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 15:07:18 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:42:04 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include "general.hpp"
+# include "AMateria.hpp"
 
 class Cure : public AMateria {
 	
@@ -26,7 +26,7 @@ class Cure : public AMateria {
 
         Cure &operator=(const Cure& original);
 
-		void use(ICharacter& target);
+		virtual void use(ICharacter& target);
         AMateria* clone() const;
 
 };

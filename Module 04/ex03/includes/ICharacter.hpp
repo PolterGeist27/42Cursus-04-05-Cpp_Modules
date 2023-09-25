@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:55:44 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 15:08:16 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:44:05 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include "general.hpp"
+# include <iostream>
+# include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

@@ -6,24 +6,24 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:50:07 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 15:14:01 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:55:24 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.hpp"
 
 int main() {
-/* 	IMateriaSource* src = new MateriaSource();
+	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
-	src->learnMateria(new Cure()); */
+	src->learnMateria(new Cure());
 
 	ICharacter* me = new Character("me");
-	
-/* 	AMateria* tmp;
+
+	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
-	me->equip(tmp); */
+	me->equip(tmp);
 	
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
@@ -31,7 +31,7 @@ int main() {
 	
 	delete bob;
 	delete me;
-	//delete src;
+	delete src;
 	
 	return 0;
 }

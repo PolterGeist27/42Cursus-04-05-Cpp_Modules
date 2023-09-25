@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:59:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 14:33:45 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:55:43 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 Cure::Cure() : AMateria("cure") {}
 
-Cure::Cure(const Cure& original) : AMateria("cure") {}
+Cure::Cure(const Cure& original) : AMateria(original.type) {}
 
 Cure::~Cure() {}
 
 Cure& Cure::operator=(const Cure& original) {
+	(void)original;
 	return (*this);
 }
 
