@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:22:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 10:04:55 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:17:23 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@
 #include "ClapTrap.hpp"
 
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : public virtual ClapTrap {
     
-    private:
-
+    protected:
+        static int const HP = 100;
+	    static int const EP = 50;
+	    static int const AD = 20;
     
     public:
+        ScavTrap();
         ScavTrap( std::string name );
         ScavTrap( ScavTrap& original );
         ~ScavTrap();

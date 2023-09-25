@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:00:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 10:36:45 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:14:39 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Animal::Animal() {
 
 Animal::Animal(Animal const &original) {
     std::cout << "Animal copy constructor called!" << std::endl;
-    *this = original;
+    this->_type = original._type;
 }
 
 Animal::~Animal() {

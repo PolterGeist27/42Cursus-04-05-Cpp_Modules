@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 10:16:58 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 12:08:24 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:16:04 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class FragTrap : public virtual ClapTrap {
 	    static int const AD = 30;
     
     public:
+        FragTrap();
         FragTrap( std::string name );
         FragTrap( FragTrap& original );
         ~FragTrap();

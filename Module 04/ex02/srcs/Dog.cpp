@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:49:50 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 12:47:08 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:07:00 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Dog::Dog() {
 
 Dog::Dog(Dog const &original) : AAnimal(original) {
     std::cout << "Dog copy constructor called!" << std::endl;
-    *this = original;
+    this->_type = original._type;
+    this->_brain = new Brain(*original._brain);
 }
 
 Dog::~Dog() {

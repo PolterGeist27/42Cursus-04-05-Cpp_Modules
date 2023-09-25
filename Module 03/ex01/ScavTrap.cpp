@@ -6,11 +6,15 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:22:21 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 12:16:39 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:34:38 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap( void ) {
+    ScavTrap("Default");
+}
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
     std::cout << "ClapTrap turned into ScavTrap!" << std::endl;
@@ -21,6 +25,10 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
 
 ScavTrap::ScavTrap( ScavTrap& original ) : ClapTrap(original) {
     std::cout << "Copy of " << original._name << " ScavTrap created!" << std::endl;
+    this->_name = original._name;
+    this->_HP = original._HP;
+    this->_EP = original._EP;
+    this->_AD = original._AD;
 }
 
 ScavTrap::~ScavTrap() {
@@ -29,10 +37,12 @@ ScavTrap::~ScavTrap() {
 
 ScavTrap &ScavTrap::operator=( ScavTrap original ) {
     std::cout << "Copy of " << original._name << " ScavTrap created!" << std::endl;
-    this->_name = original._name;
-    this->_HP = original._HP;
-    this->_EP = original._EP;
-    this->_AD = original._AD;
+    if (this != &original) {
+        this->_name = original._name;
+        this->_HP = original._HP;
+        this->_EP = original._EP;
+        this->_AD = original._AD;
+    }
     return *this;
 }
 

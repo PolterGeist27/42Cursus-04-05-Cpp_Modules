@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:24 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/22 15:39:41 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:07:59 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ Brain::Brain() {
 Brain::Brain(Brain const &original) {
     std::cout << "Brain copy constructor called!" << std::endl;
     *this = original;
+    for (int i = 0; i < NUM_IDEAS; i++) {
+        this->_ideas[i] = original._ideas[i];
+    }
 }
 
 Brain::~Brain() {

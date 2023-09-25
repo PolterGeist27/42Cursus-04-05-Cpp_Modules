@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:32:09 by diogmart          #+#    #+#             */
-/*   Updated: 2023/05/30 16:04:33 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:20:57 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap {
         unsigned int _AD;
     
     public:
+        ClapTrap();
         ClapTrap( std::string name );
         ClapTrap( ClapTrap& original );
         ~ClapTrap();

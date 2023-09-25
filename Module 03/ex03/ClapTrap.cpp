@@ -6,11 +6,15 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:32:11 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/01 12:19:02 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:22:28 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap() {
+    ClapTrap("Default");
+}
 
 ClapTrap::ClapTrap( std::string name ) : _name(name) {
     _HP = ClapTrap::HP;
@@ -20,6 +24,9 @@ ClapTrap::ClapTrap( std::string name ) : _name(name) {
 }
 
 ClapTrap::ClapTrap( ClapTrap& original ) : _name(original._name) {
+    this->_HP = original._HP;
+    this->_EP = original._EP;
+    this->_AD = original._AD;
     std::cout << "Copy of " << original._name << " ClapTrap created!" << std::endl;
 }
 
@@ -31,9 +38,9 @@ ClapTrap &ClapTrap::operator=( ClapTrap original ) {
     std::cout << "Copy of " << original._name << " ClapTrap created!" << std::endl;
     if (this != &original) {
         this->_name = original._name;
-        this->_name = original._HP;
-        this->_name = original._EP;
-        this->_name = original._AD;
+        this->_HP = original._HP;
+        this->_EP = original._EP;
+        this->_AD = original._AD;
     }
     return *this;
 }
@@ -51,6 +58,7 @@ void ClapTrap::attack(const std::string& target) {
 void ClapTrap::takeDamage(unsigned int amount) {
     if (this->_HP <= amount) {
         std::cout << this->_name << " is bellow 0 HP! " << std::endl;
+        this->_HP = 0;
         return ;
     }
     this->_HP -= amount;

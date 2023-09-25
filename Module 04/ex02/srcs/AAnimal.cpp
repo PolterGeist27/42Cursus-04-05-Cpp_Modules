@@ -19,7 +19,7 @@ AAnimal::AAnimal() {
 
 AAnimal::AAnimal(AAnimal const &original) {
     std::cout << "Animal copy constructor called!" << std::endl;
-    *this = original;
+    this->_type = original._type;
 }
 
 AAnimal::~AAnimal() {

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:59:48 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 12:48:06 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/25 10:57:30 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void test_animal_copy(void)
 
 void test_inheritance(void)
 {
-	std::cout << "\n\t=== Testing new animals growls ===\n" << std::endl;
+	std::cout << "\n\t=== Testing inheritance ===\n" << std::endl;
 	
 	Dog *dog = new Dog();
 	Cat *cat = new Cat();

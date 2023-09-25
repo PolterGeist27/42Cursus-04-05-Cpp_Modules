@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:49:44 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 12:46:57 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:06:51 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Cat::Cat() {
 
 Cat::Cat(Cat const &original) : AAnimal(original) {
     std::cout << "Cat copy constructor called!" << std::endl;
-    *this = original;
+    this->_type = original._type;
+    this->_brain = new Brain(*original._brain);
 }
 
 Cat::~Cat() {

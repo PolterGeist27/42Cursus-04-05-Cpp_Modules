@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:26:10 by diogmart          #+#    #+#             */
-/*   Updated: 2023/06/05 10:36:15 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:14:46 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ WrongAnimal::WrongAnimal() {
 
 WrongAnimal::WrongAnimal(WrongAnimal const &original) {
     std::cout << "WrongAnimal copy constructor called!" << std::endl;
-    *this = original;
+    this->_type = original._type;
 }
 
 WrongAnimal::~WrongAnimal() {
