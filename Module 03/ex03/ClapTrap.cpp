@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:32:11 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/25 11:22:28 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:56:53 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap( std::string name ) : _name(name) {
     std::cout << "ClapTrap " << name << " created!" << std::endl;
 }
 
-ClapTrap::ClapTrap( ClapTrap& original ) : _name(original._name) {
+ClapTrap::ClapTrap( const ClapTrap& original ) : _name(original._name) {
     this->_HP = original._HP;
     this->_EP = original._EP;
     this->_AD = original._AD;
@@ -34,13 +34,13 @@ ClapTrap::~ClapTrap() {
     std::cout << "ClapTrap " << this->_name << " destroyed!" << std::endl;
 }
 
-ClapTrap &ClapTrap::operator=( ClapTrap original ) {
-    std::cout << "Copy of " << original._name << " ClapTrap created!" << std::endl;
+ClapTrap &ClapTrap::operator=( const ClapTrap& original ) {
     if (this != &original) {
         this->_name = original._name;
         this->_HP = original._HP;
         this->_EP = original._EP;
         this->_AD = original._AD;
+        std::cout << "Assignment copy of " << original._name << " ClapTrap created!" << std::endl;
     }
     return *this;
 }

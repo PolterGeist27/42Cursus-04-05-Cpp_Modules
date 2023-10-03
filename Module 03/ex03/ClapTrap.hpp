@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:32:09 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/25 11:14:44 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:54:35 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ class ClapTrap {
     public:
         ClapTrap();
         ClapTrap( std::string name );
-        ClapTrap( ClapTrap& original );
+        ClapTrap( const ClapTrap& original );
         ~ClapTrap();
-        ClapTrap &operator=( ClapTrap original );
+        ClapTrap &operator=( const ClapTrap& original );
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
