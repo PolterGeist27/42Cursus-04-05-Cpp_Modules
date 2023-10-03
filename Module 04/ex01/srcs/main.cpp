@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:59:48 by diogmart          #+#    #+#             */
-/*   Updated: 2023/09/22 15:56:59 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/03 14:39:05 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void test_animal_copies(void)
 	delete cat;
 
 	std::cout << "\tClone cat brain: " << clone->getBrain() << std::endl << std::endl;
-
+	delete clone;
 	std::cout << std::endl;
 }
 
