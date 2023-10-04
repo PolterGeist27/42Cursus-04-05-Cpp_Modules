@@ -6,7 +6,13 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:06:37 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/03 16:07:38 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/04 14:32:10 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
+
+int main(void)
+{
+    
+}
