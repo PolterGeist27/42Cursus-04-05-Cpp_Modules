@@ -6,13 +6,16 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:07:18 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 14:32:36 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:13:13 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -31,6 +34,9 @@ class Bureaucrat {
 		void setGrade(int grade);
 		void incrementGrade();
 		void decrementGrade();
+
+		void signForm(AForm& form);
+		void executeForm(AForm const& form);
 
 		class GradeTooHighException : public std::exception {
 			public:

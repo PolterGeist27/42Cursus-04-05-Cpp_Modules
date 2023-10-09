@@ -6,14 +6,11 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:07:18 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 12:42:15 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:33:07 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
 
 #include <iostream>
 #include "Form.hpp"
@@ -52,5 +49,3 @@ class Bureaucrat {
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& src);
-
-#endif

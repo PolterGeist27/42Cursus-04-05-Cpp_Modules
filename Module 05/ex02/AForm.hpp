@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:06:08 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 14:33:19 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:35:51 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
     private:
         const std::string _name;
         bool _isSigned;
@@ -25,11 +25,11 @@ class Form {
         const int _reqToExec;
 
     public:
-        Form();
-        Form(std::string name, int reqToSign, int reqToExec);
-        Form(const Form& original);
-        ~Form();
-        Form &operator=(const Form &original);
+        AForm();
+        AForm(std::string name, int reqToSign, int reqToExec);
+        AForm(const AForm& original);
+        ~AForm();
+        AForm &operator=(const AForm &original);
 
         std::string getName();
         bool getSigned();
@@ -37,6 +37,8 @@ class Form {
         int getReqToExec();
 
         void beSigned(Bureaucrat& bur);
+
+        virtual void execute(Bureaucrat const & executor) const = 0;
 
         class GradeTooHighException : public std::exception {
 			public:
@@ -49,4 +51,4 @@ class Form {
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, Form& src);
+std::ostream& operator<<(std::ostream& os, AForm& src);
