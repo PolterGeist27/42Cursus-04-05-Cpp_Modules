@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:07:35 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 14:21:25 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:27:13 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& original) {
 	return (*this);
 }
 
-const std::string Bureaucrat::getName() {
+const std::string Bureaucrat::getName() const {
 	return (this->_name);
 }
 
-int Bureaucrat::getGrade() {
+int Bureaucrat::getGrade() const {
 	return (this->_grade);
 }
 

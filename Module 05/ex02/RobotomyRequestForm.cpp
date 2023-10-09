@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:08:04 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:15:41 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:20:02 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return (*this);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	if (executor.getGrade() > this->getReqToExec())
 		throw Bureaucrat::GradeTooLowException();
 	if (!this->getSigned())

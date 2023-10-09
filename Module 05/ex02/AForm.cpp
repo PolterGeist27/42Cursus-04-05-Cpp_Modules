@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:06:05 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 14:22:53 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:27:29 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ AForm &AForm::operator=(const AForm &original) {
     return (*this);
 }
 
-std::string AForm::getName() {
+std::string AForm::getName() const {
     return (this->_name);
 }
 
-bool AForm::getSigned() {
+bool AForm::getSigned() const {
     return (this->_isSigned);
 }
 
-int AForm::getReqToSign() {
+int AForm::getReqToSign() const {
     return(this->_reqToSign);
 }
 
-int AForm::getReqToExec() {
+int AForm::getReqToExec() const {
     return (this->_reqToExec);
 }
 

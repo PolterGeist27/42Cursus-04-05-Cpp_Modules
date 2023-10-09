@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:11:00 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:15:33 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:20:11 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
 	if (executor.getGrade() > this->getReqToExec())
 		throw Bureaucrat::GradeTooLowException();
 	if (!this->getSigned())

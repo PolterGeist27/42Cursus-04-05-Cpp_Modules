@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:07:44 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:14:19 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:27:42 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat & executor) const {
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	if (executor.getGrade() > this->getReqToExec())
 		throw Bureaucrat::GradeTooLowException();
 	if (!this->getSigned())

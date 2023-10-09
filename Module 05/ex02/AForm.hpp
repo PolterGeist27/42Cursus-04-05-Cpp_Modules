@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:06:08 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 14:35:51 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:27:00 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ class AForm {
         ~AForm();
         AForm &operator=(const AForm &original);
 
-        std::string getName();
-        bool getSigned();
-        int getReqToSign();
-        int getReqToExec();
+        std::string getName() const;
+        bool getSigned() const;
+        int getReqToSign() const;
+        int getReqToExec() const;
 
         void beSigned(Bureaucrat& bur);
 

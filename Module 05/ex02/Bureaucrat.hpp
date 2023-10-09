@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:07:18 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:13:13 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:26:40 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Bureaucrat {
 		~Bureaucrat();
 		Bureaucrat &operator=(const Bureaucrat &original);
 
-		const std::string getName();
-		int getGrade();
+		const std::string getName() const;
+		int getGrade() const;
 		void setGrade(int grade);
 		void incrementGrade();
 		void decrementGrade();
