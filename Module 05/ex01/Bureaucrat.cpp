@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:07:35 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 10:27:20 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:49:57 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,19 @@ void Bureaucrat::setGrade(int grade) {
 		throw GradeTooHighException();
 	if (this->_grade > 150)
 		throw GradeTooLowException();
+}
+
+void Bureaucrat::signForm(Form& form) {
+	if (form.getSigned())
+		std::cout << this->getName() << " signed " << form.getName() << "." << std::endl;
+	else {
+		if (this->_grade <= form.getReqToSign())
+			form.beSigned(*this);
+		else {
+			std::cout << this->getName() << " couldn't sign " << form.getName() << " because is grade is too low." << std::endl;
+			throw Form::GradeTooLowException();
+		}
+	}
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
