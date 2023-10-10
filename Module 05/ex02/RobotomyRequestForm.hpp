@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:08:16 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:13:30 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:04:53 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ class RobotomyRequestForm : public AForm {
         ~RobotomyRequestForm();
         RobotomyRequestForm &operator=(const RobotomyRequestForm& original);
 
-        virtual void execute(const Bureaucrat& executor) const;
+        virtual void specificExecute(void) const;
 };

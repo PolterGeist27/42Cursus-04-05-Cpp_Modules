@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:06:08 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:27:00 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:55:30 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ class AForm {
 
         void beSigned(Bureaucrat& bur);
 
-        virtual void execute(Bureaucrat const & executor) const = 0;
+        void execute(const Bureaucrat& executor) const;
+
+        virtual void specificExecute(void) const = 0;
 
         class GradeTooHighException : public std::exception {
 			public:
@@ -49,6 +51,17 @@ class AForm {
 			public:
 				virtual const char *what() const throw();
 		};
+
+        class FormNotSignedException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+
+        class BureaucratGradeTooLowException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+
 };
 
 std::ostream& operator<<(std::ostream& os, AForm& src);

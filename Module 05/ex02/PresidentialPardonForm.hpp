@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:10:49 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:13:33 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:04:38 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ class PresidentialPardonForm : public AForm {
         ~PresidentialPardonForm();
         PresidentialPardonForm &operator=(const PresidentialPardonForm& original);
 
-		virtual void execute(const Bureaucrat& executor) const;
+		virtual void specificExecute(void) const;
 };

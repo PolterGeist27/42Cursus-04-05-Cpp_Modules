@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:11:00 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:20:11 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:04:32 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
-	if (executor.getGrade() > this->getReqToExec())
-		throw Bureaucrat::GradeTooLowException();
-	if (!this->getSigned())
-		; // throw exception
-	// execute
+void PresidentialPardonForm::specificExecute(void) const {
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

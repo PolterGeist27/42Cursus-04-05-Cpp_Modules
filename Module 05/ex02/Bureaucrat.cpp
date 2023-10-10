@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:07:35 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/09 15:27:13 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:56:29 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,21 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Bureaucrat exception: grade too low.\n");
+}
+
+void Bureaucrat::executeForm(const AForm& form) {
+	if (this->getGrade() > form.getReqToExec()) {
+		std::cout << this->_name << " couldn't execute " << form.getName() << " because their grade is too low." << std::endl;
+		throw AForm::BureaucratGradeTooLowException();
+	}
+	if (!form.getSigned()) {
+		std::cout << this->_name << " couldn't execute " << form.getName() << " because it wasn't signed." << std::endl;
+		throw AForm::FormNotSignedException();
+	}
+	else {
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName() << "." << std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& src) {
