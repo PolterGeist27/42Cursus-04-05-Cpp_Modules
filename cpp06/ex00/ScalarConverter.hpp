@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:30:38 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/12 12:14:15 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:22:21 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ typedef enum
 class ScalarConverter
 {
     private:
-
-    public:
+        // Since this is a static class and can't be instantiated the
+        // Constructors and Destructors should be private.
         ScalarConverter();
         ScalarConverter(const ScalarConverter& original);
         ScalarConverter&    operator=(const ScalarConverter& original);
         ~ScalarConverter();
 
+    public:
         static bool isChar(const std::string& input);
         static bool isInt(const std::string& input);
         static bool isFloat(const std::string& input);
