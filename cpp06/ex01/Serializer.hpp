@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 14:30:15 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/12 12:13:49 by diogmart         ###   ########.fr       */
+/*   Created: 2023/10/12 11:49:49 by diogmart          #+#    #+#             */
+/*   Updated: 2023/10/12 12:16:49 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
 
-int main(int argc, char **argv)
-{
-	if (argc != 2) {
-		std::cerr << "Error: Wrong number of arguments" << std::endl;
-		return (1);
-	}
+#include <iostream>
+#include <stdint.h>
+#include "Data.hpp"
 
-	ScalarConverter::convert((std::string)argv[1]);
-}
+class Serializer {
+
+	public:
+		Serializer();
+		Serializer(const Serializer& original);
+		~Serializer();
+		Serializer& operator=(const Serializer& original);
+
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
+};

@@ -5,19 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 14:30:15 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/12 12:13:49 by diogmart         ###   ########.fr       */
+/*   Created: 2023/10/12 11:49:28 by diogmart          #+#    #+#             */
+/*   Updated: 2023/10/12 12:15:51 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	if (argc != 2) {
-		std::cerr << "Error: Wrong number of arguments" << std::endl;
-		return (1);
-	}
+	Data data = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et viverra urna, sed pharetra mauris.", 42};
 
-	ScalarConverter::convert((std::string)argv[1]);
+	std::cout << "Data address: " << &data << std::endl;
+	std::cout << "Data string content: " << data.LoremIpsum << std::endl;
+	std::cout << "Data int content: " << data.i << std::endl;
+
+	uintptr_t ptr = Serializer::serialize(&data);
+	std::cout << "Serialized address: " << &ptr << std::endl;
+
+	std::cout << "Deserialized address: " << Serializer::deserialize(ptr) << std::endl;
 }
