@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:18:45 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/13 11:09:30 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:11:09 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,8 @@ int main(void) {
 
 	identify(bad1);
 	identify(bad2);
+
+	delete base1;
+	delete base2;
+	delete base3;
 }
