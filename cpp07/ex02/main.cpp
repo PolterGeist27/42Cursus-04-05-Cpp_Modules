@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:10:45 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/17 12:22:05 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/17 12:24:04 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(void) {
     int * a = new int();
     std::cout << *a << std::endl;
+    delete a;
     
     std::cout << "INT ARRAY" << std::endl;
     Array<int> arr1((unsigned int)10);
