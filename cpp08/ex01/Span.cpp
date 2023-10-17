@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:55:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/17 15:29:18 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:32:03 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ Span &Span::operator=(const Span& original) {
 
 void Span::addNumber(int num) {
     if (this->_vec.size() == this->_N)
-        ; // throw exception
+        throw Span::VectorFullException();
     this->_vec.push_back(num);
 }
 
 unsigned int Span::shortestSpan() {
     if (this->_N < 2)
-        ; //throw exception
+        throw Span::SizeTooSmallException();
     unsigned int minSpan = UINT_MAX; // largest possible span between two numbers
     for (unsigned int i = 0; i < this->_vec.size(); i++)
     {
@@ -62,7 +62,7 @@ void Span::fill(void) {
 
 unsigned int Span::longestSpan() {
     if (this->_N < 2)
-        ; //throw exception
+        throw Span::SizeTooSmallException();
     int min = *(std::min_element(this->_vec.begin(), this->_vec.end()));
     int max = *(std::max_element(this->_vec.begin(), this->_vec.end()));
     return (max - min);
