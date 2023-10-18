@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:55:40 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/17 15:32:03 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:01:55 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,17 @@ unsigned int Span::shortestSpan() {
         for (unsigned int j = i + 1; j < this->_vec.size(); j++)
         {
             unsigned int span = abs(this->_vec[i] - this->_vec[j]);
-            if (span < minSpan)
+            if (span < minSpan) {
                 minSpan = span;
+                //std::cout << "i and j:" << this->_vec[i] << " " << this->_vec[j] << std::endl;
+            }
         }
     }
     return (minSpan);
 }
 
 int gen(void) {
-    return(std::rand() % 100);
+    return(std::rand() % 10000);
 }
 
 void Span::fill(void) {
