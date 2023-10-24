@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 10:35:51 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/13 11:05:30 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:18:28 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,21 @@ void identify(Base *p) {
 
 void identify(Base& p) {
 	try {
-		dynamic_cast<A&>(p);
+		(void)dynamic_cast<A&>(p);
 		std::cout << "Found A&\n";
 		return;
 	}
 	catch (const std::exception& e) {}
 
 	try {
-		dynamic_cast<B&>(p);
+		(void)dynamic_cast<B&>(p);
 		std::cout << "Found B&\n";
 		return;
 	}
 	catch (const std::exception& e) {}
 
 	try {
-		dynamic_cast<C&>(p);
+		(void)dynamic_cast<C&>(p);
 		std::cout << "Found C&\n";
 		return;
 	}
