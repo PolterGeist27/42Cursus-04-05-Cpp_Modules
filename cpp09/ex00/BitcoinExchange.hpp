@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:58:17 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/24 12:06:29 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:02:15 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <map>
 #include <fstream>
 #include <exception>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
 
 class BitcoinExchange
 {
@@ -35,4 +40,6 @@ class BitcoinExchange
 
         void readInputFile();
         bool validateDate(const std::string& date);
+
+        bool isDateEarlier(const std::string& date1, const std::string& date2);
 };

@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:57:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/24 11:18:55 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:57:22 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
         return (1);
     }
     
-    std::ifstream in_file;
+    BitcoinExchange btc(argv[1]);
 
-    in_file.open(argv[1]);
+    btc.readInputFile();
 }
