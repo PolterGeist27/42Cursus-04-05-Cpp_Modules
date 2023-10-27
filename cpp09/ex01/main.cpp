@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:58:26 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/25 12:41:29 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:10:36 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,11 @@ int main(int argc, char **argv) {
         return (1);
     }
 
-    
+    RPN rpn;
+
+    try {
+        rpn.solveExpression(argv[1]);
+    } catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
 }

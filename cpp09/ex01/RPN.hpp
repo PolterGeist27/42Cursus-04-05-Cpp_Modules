@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:59:53 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/25 13:02:47 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:03:58 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <cstdlib>
 
 #define ALLOWED_CHARS "+-/* 1234567890" // operation tokes, space and all numbers
 
@@ -26,6 +27,9 @@ class RPN
         
         RPN(const RPN& original);
         RPN& operator=(const RPN& original);
+        double preformOperation(char token);
+        bool isValid(const std::string& expr);
+        bool isOperand(char token);
 
     public:
         RPN();
@@ -33,5 +37,4 @@ class RPN
         ~RPN();
 
         void solveExpression(const std::string& expr);
-        bool isValid(const std::string& expr);
 };
