@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:59:49 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/27 10:15:19 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:49:04 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void RPN::solveExpression(const std::string& expr) {
         return;
     }
 
-    // divide de expression into each chars ? (or maybe just go through the string one by one ?)
+    // go through the string char by char
     // push chars one by one into the stack until a operation is found
     // then pop the last two chars in the stack and perform the operation between them
     // push the result into the stack
@@ -86,7 +86,7 @@ double RPN::preformOperation(char token) {
         break;
     
     default:
-        throw std::runtime_error("Error: invalid operation token: " + token);
+        throw std::runtime_error("Error: invalid operation token: " + std::string(1,token));
         break;
     }
 }

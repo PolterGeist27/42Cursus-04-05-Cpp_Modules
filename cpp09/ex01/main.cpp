@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:58:26 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/27 10:10:36 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:49:41 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main(int argc, char **argv) {
     
-    if (argc < 2) {
+    if (argc != 2) {
         std::cerr << "Error: wrong number of arguments." << std::endl;
         return (1);
     }
