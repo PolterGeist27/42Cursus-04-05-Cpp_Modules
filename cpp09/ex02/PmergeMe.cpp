@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:40:57 by diogmart          #+#    #+#             */
-/*   Updated: 2023/11/06 13:46:05 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:55:04 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void PmergeMe::Sort(std::vector<int>& vec) {
     mergeSortVec(this->_vec);
 
     clock_t end1 = clock();
-    double elapsed_time_vec = static_cast<double>(end1 - start1) / CLOCKS_PER_SEC;
+    double elapsed_time_vec = static_cast<double>(end1 - start1) / CLOCKS_PER_SEC * 1000;
     
     // Time sort with deque
 
@@ -53,7 +53,7 @@ void PmergeMe::Sort(std::vector<int>& vec) {
     mergeSortDeq(this->_deq);
 
     clock_t end2 = clock();
-    double elapsed_time_deq = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC;
+    double elapsed_time_deq = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC * 1000;
 
     std::cout << "(Vec) After: ";
 	for (std::vector<int>::iterator it = this->_vec.begin(); it != this->_vec.end(); it++) {
@@ -67,8 +67,8 @@ void PmergeMe::Sort(std::vector<int>& vec) {
 	}
 	std::cout << std::endl;
 
-    std::cout << "Time to process a range of " << this->_vec.size() << " elements with std::vector : " << elapsed_time_vec * 1000 << " seconds\n";
-    std::cout << "Time to process a range of " << this->_deq.size() << " elements with std::deque : " << elapsed_time_deq * 1000 << " seconds\n";
+    std::cout << "Time to process a range of " << this->_vec.size() << " elements with std::vector : " << elapsed_time_vec << " milliseconds" << std::endl;
+    std::cout << "Time to process a range of " << this->_deq.size() << " elements with std::deque : " << elapsed_time_deq << " milliseconds" << std::endl;
 }
 
 void PmergeMe::mergeSortVec(std::vector<int>& vec) {
