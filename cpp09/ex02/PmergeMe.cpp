@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:40:57 by diogmart          #+#    #+#             */
-/*   Updated: 2023/11/06 12:56:10 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:04:27 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ PmergeMe &PmergeMe::operator=(const PmergeMe& original) {
 }
 
 PmergeMe::PmergeMe(std::vector<int> vec) : _vec(vec), _deq(vec.begin(), vec.end()) {
-    Sort(vec);
+    Sort(this->_vec);
 }
 
-void PmergeMe::Sort(std::vector<int> vec) {
+void PmergeMe::Sort(std::vector<int>& vec) {
     std::cout << "Before: ";
 	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++) {
 		std::cout << *it << " ";
@@ -55,9 +55,15 @@ void PmergeMe::Sort(std::vector<int> vec) {
     clock_t end2 = clock();
     double elapsed_time_deq = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC;
 
-    std::cout << "After: ";
-	for (std::vector<int>::iterator it2 = this->_vec.begin(); it2 != this->_vec.end(); it2++) {
-		std::cout << *it2 << " ";
+    std::cout << "(Vec) After: ";
+	for (std::vector<int>::iterator it = this->_vec.begin(); it != this->_vec.end(); it++) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+
+    std::cout << "(Deq) After: ";
+	for (std::deque<int>::iterator it = this->_deq.begin(); it != this->_deq.end(); it++) {
+		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
 
@@ -65,7 +71,7 @@ void PmergeMe::Sort(std::vector<int> vec) {
     std::cout << "Time to process a range of " << this->_deq.size() << " elements with std::deque : " << elapsed_time_deq << " seconds\n";
 }
 
-void PmergeMe::mergeSortVec(std::vector<int> vec) {
+void PmergeMe::mergeSortVec(std::vector<int>& vec) {
     
     if (vec.size() == 1) return;
 
@@ -79,36 +85,37 @@ void PmergeMe::mergeSortVec(std::vector<int> vec) {
     mergeVec(left, right, vec);
 }
 
-void PmergeMe::mergeVec(std::vector<int> left, std::vector<int> right, std::vector<int> vec) {
-    std::vector<int>::iterator l = left.begin(), r = right.begin(), it = vec.begin();
+void PmergeMe::mergeVec(std::vector<int>& left, std::vector<int>& right, std::vector<int>& vec) {
+    //std::vector<int>::iterator l = left.begin(), r = right.begin(), it = vec.begin();
+    size_t l = 0, r = 0, i = 0;
 
-    while (l != left.end() && r != right.end()) {
-        if (*l < *r) {
-            *it = *l;
-            it++;
+    while (l < left.size() && r < right.size()) {
+        if (left[l] < right[r]) {
+            vec[i] = left[l];
+            i++;
             l++;
         }
         else {
-            *it = *r;
-            it++;
+            vec[i] = right[r];
+            i++;
             r++;
         }  
     }
 
     // in case the number of elements in odd and there is one left to put in the array:
-    while (l != left.end()) {
-        *it = *l;
-        it++;
+    while (l < left.size()) {
+        vec[i] = left[l];
+        i++;
         l++;
     }
-    while (r != right.end()) {
-        *it = *r;
-        it++;
+    while (r < right.size()) {
+        vec[i] = right[r];
+        i++;
         r++;
     }
 }
 
-void PmergeMe::mergeSortDeq(std::deque<int> deq) {
+void PmergeMe::mergeSortDeq(std::deque<int>& deq) {
     if (deq.size() == 1) return;
 
     int middle = deq.size() / 2;
@@ -121,7 +128,7 @@ void PmergeMe::mergeSortDeq(std::deque<int> deq) {
     mergeDeq(left, right, deq);
 }
 
-void PmergeMe::mergeDeq(std::deque<int> left, std::deque<int> right, std::deque<int> deq) {
+void PmergeMe::mergeDeq(std::deque<int>& left, std::deque<int>& right, std::deque<int>& deq) {
     std::deque<int>::iterator l = left.begin(), r = right.begin(), it = deq.begin();
 
     while (l != left.end() && r != right.end()) {
