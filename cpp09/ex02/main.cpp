@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:40:04 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/30 10:56:05 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/06 11:57:13 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,19 @@ int main(int argc, char **argv) {
 		return (1);
 	}
 
-	for(size_t i = 0; i < argc; i++) {
-		for (size_t j = 0; argv[i][j] != '\0'; j++) {
+	for(int i = 1; i < argc; i++) {
+		for (int j = 0; argv[i][j] != '\0'; j++) {
 			if (!isdigit(argv[i][j])) {
 				std::cerr << "Error: all arguments must be positive integers." << std::endl;
 				return (1);
 			}
 		}
 	}
+	
+	// after it passes the check for non numeric arguments put the sequence in a vector;
+	std::vector<int> vec;
+	for (int i = 1; i < argc; i++) {
+		vec.push_back(atoi(argv[i]));
+	}
+	PmergeMe obj(vec);
 }
