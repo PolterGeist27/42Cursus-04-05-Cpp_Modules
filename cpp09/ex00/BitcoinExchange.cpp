@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:58:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/10/25 11:57:27 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:05:03 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ void BitcoinExchange::readInputFile() {
                 // if the date of the current node is after the stored one but still earlier than the input date
                 if (isDateEarlier((*it).first, date)) 
                     closest_date = (*it).first;
-                /* if (!isDateEarlier((*it).first, date)) // only continue the loop while the stored variables are earlier than the input date
-                    break; */
+                if (!isDateEarlier((*it).first, date)) // only continue the loop while the stored variables are earlier than the input date
+                    break;
             }
             float result = num * this->_database[closest_date];
             std::cout << date << " => " << num << " = " << result << std::endl;
