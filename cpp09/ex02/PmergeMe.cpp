@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:40:57 by diogmart          #+#    #+#             */
-/*   Updated: 2023/11/06 13:04:27 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:46:05 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void PmergeMe::Sort(std::vector<int>& vec) {
 	}
 	std::cout << std::endl;
 
-    std::cout << "Time to process a range of " << this->_vec.size() << " elements with std::vector : " << elapsed_time_vec << " seconds\n";
-    std::cout << "Time to process a range of " << this->_deq.size() << " elements with std::deque : " << elapsed_time_deq << " seconds\n";
+    std::cout << "Time to process a range of " << this->_vec.size() << " elements with std::vector : " << elapsed_time_vec * 1000 << " seconds\n";
+    std::cout << "Time to process a range of " << this->_deq.size() << " elements with std::deque : " << elapsed_time_deq * 1000 << " seconds\n";
 }
 
 void PmergeMe::mergeSortVec(std::vector<int>& vec) {
