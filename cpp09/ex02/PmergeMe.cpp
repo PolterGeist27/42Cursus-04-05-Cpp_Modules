@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:40:57 by diogmart          #+#    #+#             */
-/*   Updated: 2023/11/06 13:55:04 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:16:13 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void PmergeMe::mergeSortVec(std::vector<int>& vec) {
 }
 
 void PmergeMe::mergeVec(std::vector<int>& left, std::vector<int>& right, std::vector<int>& vec) {
-    //std::vector<int>::iterator l = left.begin(), r = right.begin(), it = vec.begin();
     size_t l = 0, r = 0, i = 0;
 
     while (l < left.size() && r < right.size()) {
@@ -129,7 +128,37 @@ void PmergeMe::mergeSortDeq(std::deque<int>& deq) {
 }
 
 void PmergeMe::mergeDeq(std::deque<int>& left, std::deque<int>& right, std::deque<int>& deq) {
-    std::deque<int>::iterator l = left.begin(), r = right.begin(), it = deq.begin();
+   
+    size_t l = 0, r = 0, i = 0;
+
+    while (l < left.size() && r < right.size()) {
+        if (left[l] < right[r]) {
+            deq[i] = left[l];
+            i++;
+            l++;
+        }
+        else {
+            deq[i] = right[r];
+            i++;
+            r++;
+        }  
+    }
+
+    // in case the number of elements in odd and there is one left to put in the array:
+    while (l < left.size()) {
+        deq[i] = left[l];
+        i++;
+        l++;
+    }
+    while (r < right.size()) {
+        deq[i] = right[r];
+        i++;
+        r++;
+    }
+   
+   
+   
+/*     std::deque<int>::iterator l = left.begin(), r = right.begin(), it = deq.begin();
 
     while (l != left.end() && r != right.end()) {
         if (*l < *r) {
@@ -154,5 +183,5 @@ void PmergeMe::mergeDeq(std::deque<int>& left, std::deque<int>& right, std::dequ
         *it = *r;
         it++;
         r++;
-    }
+    } */
 }
