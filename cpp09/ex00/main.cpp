@@ -20,7 +20,13 @@ int main(int argc, char **argv) {
         return (1);
     }
     
-    BitcoinExchange btc(argv[1]);
+    try {
+        BitcoinExchange btc(argv[1]);
 
-    btc.readInputFile();
+        btc.readInputFile();
+    }
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
 }
+
