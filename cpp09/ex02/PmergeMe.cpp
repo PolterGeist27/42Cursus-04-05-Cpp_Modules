@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:40:57 by diogmart          #+#    #+#             */
-/*   Updated: 2023/11/07 10:16:13 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:57:09 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,8 +155,6 @@ void PmergeMe::mergeDeq(std::deque<int>& left, std::deque<int>& right, std::dequ
         i++;
         r++;
     }
-   
-   
    
 /*     std::deque<int>::iterator l = left.begin(), r = right.begin(), it = deq.begin();
 

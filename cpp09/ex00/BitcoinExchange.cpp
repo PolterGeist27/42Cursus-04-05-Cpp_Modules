@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:58:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/11/06 14:05:03 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:49:12 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ void BitcoinExchange::readInputFile() {
         throw std::runtime_error("Error: couldn't open input file.");
     
     std::getline(inputFile, line);
-    if (line != "date | value")
-        throw std::runtime_error("Error: invalid input file.");
     
-    while (true) {
+    while (!inputFile.eof()) {
         std::getline(inputFile, line);
-        if (inputFile.eof())
-            break;
-        
+        if (line.empty())
+            continue;
+        if (line == "date | value")
+            continue;
+
         size_t pos = 0;
         pos = line.find('|', pos);
         
