@@ -6,7 +6,7 @@
 /*   By: diogmart <diogmart@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:58:19 by diogmart          #+#    #+#             */
-/*   Updated: 2023/11/07 11:49:12 by diogmart         ###   ########.fr       */
+/*   Updated: 2023/11/08 12:24:29 by diogmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,8 @@ void BitcoinExchange::initializeDatabase() {
     if (line != "date,exchange_rate")
         throw std::runtime_error("Error: invalid database file.");
     
-    while (true) {
+    while (!dataFile.eof()) {
         std::getline(dataFile, line);
-        if (dataFile.eof())
-            break;
         std::string key = line.substr(0,10); // dates are always yyyy-mm-dd
         this->_database[key] = atof(line.substr(11).c_str()); // pos 10 is the comma the rest is the value
     }
